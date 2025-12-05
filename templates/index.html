@@ -1,3 +1,108 @@
-<h1>
-    Hello World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4b79a1, #283e51);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 20px;
+      width: 420px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      margin-top: 90px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #ffdd57;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #ffe680;
+      transform: scale(1.03);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Boston House Price Prediction</h1>
+
+    <form action="{{ url_for('predict') }}" method="post">
+
+      <input type="text" name="CRIM" placeholder="CRIM" required>
+      <input type="text" name="ZN" placeholder="ZN" required>
+      <input type="text" name="INDUS" placeholder="INDUS" required>
+      <input type="text" name="CHAS" placeholder="CHAS" required>
+      <input type="text" name="NOX" placeholder="NOX" required>
+      <input type="text" name="RM" placeholder="RM" required>
+      <input type="text" name="Age" placeholder="Age" required>
+      <input type="text" name="DIS" placeholder="DIS" required>
+      <input type="text" name="RAD" placeholder="RAD" required>
+      <input type="text" name="TAX" placeholder="TAX" required>
+      <input type="text" name="PTRATIO" placeholder="PTRATIO" required>
+      <input type="text" name="B" placeholder="B" required>
+      <input type="text" name="LSTAT" placeholder="LSTAT" required>
+
+      <button type="submit">Predict</button>
+    </form>
+
+    <div class="result">
+      {{ prediction_text }}
+    </div>
+  </div>
+
+</body>
+</html>
